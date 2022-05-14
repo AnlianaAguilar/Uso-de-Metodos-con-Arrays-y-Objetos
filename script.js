@@ -25,10 +25,9 @@ document.getElementById("lista_dental").innerHTML = consultas_dental
 médico. Para esto, deberá unir todos los nombres de pacientes e imprimir uno por
 cada párrafo.*/
 
-//metodo concat()
-
-// let listado_total2 = dental.concat(traumatologia,radiologia) 
-// console.log("listado_total2",listado_total2)
+/*metodo concat()
+let listado_total2 = dental.concat(traumatologia,radiologia) 
+console.log("listado_total2",listado_total2)*/
 
 let listado_total_dental = `<p><p/>`
 dental.forEach(element => {
@@ -49,24 +48,27 @@ let listado_total = listado_total_dental + listado_total_radiologia + listado_to
 
 document.getElementById("listado_total").innerHTML = listado_total
 
+
 /*5. Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas
 de Dental. */
-//pregunta como mostrar en html
+
 
 let dental_isapre = dental.filter(function(pacientes){
     return pacientes.prevision == 'ISAPRE'
 })
-
-// document.getElementById("dental_isapre").innerHTML = dental_isapre.paciente +"-"+dental_isapre.prevision
-console.log(dental_isapre)
+// console.log(dental_isapre)
+dental_isapre.forEach(function(valor){
+    document.getElementById("dental_isapre").innerHTML += `<p>${valor.paciente} - ${valor.prevision}</p>`
+})
 
 
 /*6. Filtrar aquellos pacientes que indican ser de FONASA en la lista de consultas
 médicas de Traumatología.*/
+
 let traumatologia_fonasa = traumatologia.filter(function(pacientes){
     return pacientes.prevision == 'FONASA'
 })
-console.log(traumatologia_fonasa)
+// console.log(traumatologia_fonasa)
 traumatologia_fonasa.forEach(function(paciente){
    document.getElementById("traumatologia_fonasa").innerHTML += `<p>${paciente.paciente} - ${paciente.prevision}</p>`
 })
